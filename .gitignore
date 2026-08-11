@@ -1,0 +1,10 @@
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.kira/
+models/
+config.yaml
+*.log
+.env
+secrets.env

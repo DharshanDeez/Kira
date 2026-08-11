@@ -1,0 +1,49 @@
+# Copy to config.yaml in project root (D:\cofounder\config.yaml)
+# All paths stay on D: drive under the project root.
+
+user:
+  name: Dharshan
+
+paths:
+  # Leave blank to auto-detect project root (D:\cofounder)
+  root: ""
+  data: ""      # default: {root}/.kira
+  models: ""    # default: {root}/models
+
+voice:
+  sample_rate: 16000
+  input_device: null
+  stt_model: "small"
+  stt_device: "auto"          # auto, cpu, cuda
+  stt_compute_type: "auto"    # auto, int8, float16
+  # Piper voice — run `python -m kira setup` after changing
+  # Female: en_US-lessac-medium (default), en_US-amy-medium, en_GB-jenny_dioco-medium
+  # Male:   en_GB-alan-medium
+  piper_voice: "en_GB-jenny_dioco-medium"
+  record_seconds_max: 15      # safety cap if hotkey stuck
+
+llm:
+  provider: ollama
+  model: "qwen2.5:7b"
+  base_url: "http://localhost:11434"
+
+hotkey:
+  push_to_talk: "ctrl+shift+k"
+
+wake_word:
+  engine: "whisper"
+  whisper_model: "tiny"
+  wake_window_seconds: 2.0
+  command_max_seconds: 10.0
+  post_wake_delay_seconds: 0.7
+  speech_rms: 0.012
+  silence_end_seconds: 1.2
+  silence_rms: 0.006
+  min_rms: 0.008
+  openwakeword_model: "hey_kira.onnx"
+
+filesystem:
+  allowed_roots:
+    - "~/Desktop"
+    - "~/Documents"
+    - "~/Downloads"
